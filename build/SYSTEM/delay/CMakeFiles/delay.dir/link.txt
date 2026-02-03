@@ -1,0 +1,2 @@
+/usr/bin/arm-none-eabi-ar qc libdelay.a CMakeFiles/delay.dir/delay.c.obj
+/usr/bin/arm-none-eabi-ranlib libdelay.a

@@ -1,0 +1,158 @@
+[
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -I/mnt/d/project/SYS_Power/Program/SYSTEM/sys -I/mnt/d/project/SYS_Power/Program/SYSTEM/delay -I/mnt/d/project/SYS_Power/Program/peripherals -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/SYS_Power.dir/Core/Src/main.c.obj -c /mnt/d/project/SYS_Power/Program/Core/Src/main.c",
+  "file": "/mnt/d/project/SYS_Power/Program/Core/Src/main.c",
+  "output": "CMakeFiles/SYS_Power.dir/Core/Src/main.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -I/mnt/d/project/SYS_Power/Program/SYSTEM/sys -I/mnt/d/project/SYS_Power/Program/SYSTEM/delay -I/mnt/d/project/SYS_Power/Program/peripherals -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/SYS_Power.dir/Core/Src/gpio.c.obj -c /mnt/d/project/SYS_Power/Program/Core/Src/gpio.c",
+  "file": "/mnt/d/project/SYS_Power/Program/Core/Src/gpio.c",
+  "output": "CMakeFiles/SYS_Power.dir/Core/Src/gpio.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -I/mnt/d/project/SYS_Power/Program/SYSTEM/sys -I/mnt/d/project/SYS_Power/Program/SYSTEM/delay -I/mnt/d/project/SYS_Power/Program/peripherals -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/SYS_Power.dir/Core/Src/i2c.c.obj -c /mnt/d/project/SYS_Power/Program/Core/Src/i2c.c",
+  "file": "/mnt/d/project/SYS_Power/Program/Core/Src/i2c.c",
+  "output": "CMakeFiles/SYS_Power.dir/Core/Src/i2c.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -I/mnt/d/project/SYS_Power/Program/SYSTEM/sys -I/mnt/d/project/SYS_Power/Program/SYSTEM/delay -I/mnt/d/project/SYS_Power/Program/peripherals -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/SYS_Power.dir/Core/Src/stm32f1xx_it.c.obj -c /mnt/d/project/SYS_Power/Program/Core/Src/stm32f1xx_it.c",
+  "file": "/mnt/d/project/SYS_Power/Program/Core/Src/stm32f1xx_it.c",
+  "output": "CMakeFiles/SYS_Power.dir/Core/Src/stm32f1xx_it.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -I/mnt/d/project/SYS_Power/Program/SYSTEM/sys -I/mnt/d/project/SYS_Power/Program/SYSTEM/delay -I/mnt/d/project/SYS_Power/Program/peripherals -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/SYS_Power.dir/Core/Src/stm32f1xx_hal_msp.c.obj -c /mnt/d/project/SYS_Power/Program/Core/Src/stm32f1xx_hal_msp.c",
+  "file": "/mnt/d/project/SYS_Power/Program/Core/Src/stm32f1xx_hal_msp.c",
+  "output": "CMakeFiles/SYS_Power.dir/Core/Src/stm32f1xx_hal_msp.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -I/mnt/d/project/SYS_Power/Program/SYSTEM/sys -I/mnt/d/project/SYS_Power/Program/SYSTEM/delay -I/mnt/d/project/SYS_Power/Program/peripherals -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/SYS_Power.dir/Core/Src/sysmem.c.obj -c /mnt/d/project/SYS_Power/Program/Core/Src/sysmem.c",
+  "file": "/mnt/d/project/SYS_Power/Program/Core/Src/sysmem.c",
+  "output": "CMakeFiles/SYS_Power.dir/Core/Src/sysmem.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -I/mnt/d/project/SYS_Power/Program/SYSTEM/sys -I/mnt/d/project/SYS_Power/Program/SYSTEM/delay -I/mnt/d/project/SYS_Power/Program/peripherals -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/SYS_Power.dir/Core/Src/syscalls.c.obj -c /mnt/d/project/SYS_Power/Program/Core/Src/syscalls.c",
+  "file": "/mnt/d/project/SYS_Power/Program/Core/Src/syscalls.c",
+  "output": "CMakeFiles/SYS_Power.dir/Core/Src/syscalls.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -I/mnt/d/project/SYS_Power/Program/SYSTEM/sys -I/mnt/d/project/SYS_Power/Program/SYSTEM/delay -I/mnt/d/project/SYS_Power/Program/peripherals -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -g -o CMakeFiles/SYS_Power.dir/startup_stm32f103xe.s.obj -c /mnt/d/project/SYS_Power/Program/startup_stm32f103xe.s",
+  "file": "/mnt/d/project/SYS_Power/Program/startup_stm32f103xe.s",
+  "output": "CMakeFiles/SYS_Power.dir/startup_stm32f103xe.s.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build/cmake/stm32cubemx",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj -c /mnt/d/project/SYS_Power/Program/Core/Src/system_stm32f1xx.c",
+  "file": "/mnt/d/project/SYS_Power/Program/Core/Src/system_stm32f1xx.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build/cmake/stm32cubemx",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj -c /mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c",
+  "file": "/mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build/cmake/stm32cubemx",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj -c /mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c",
+  "file": "/mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build/cmake/stm32cubemx",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj -c /mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c",
+  "file": "/mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build/cmake/stm32cubemx",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj -c /mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c",
+  "file": "/mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build/cmake/stm32cubemx",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj -c /mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c",
+  "file": "/mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build/cmake/stm32cubemx",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj -c /mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c",
+  "file": "/mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build/cmake/stm32cubemx",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj -c /mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c",
+  "file": "/mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build/cmake/stm32cubemx",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj -c /mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c",
+  "file": "/mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build/cmake/stm32cubemx",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.obj -c /mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c",
+  "file": "/mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build/cmake/stm32cubemx",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.obj -c /mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c",
+  "file": "/mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build/cmake/stm32cubemx",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.obj -c /mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c",
+  "file": "/mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build/cmake/stm32cubemx",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.obj -c /mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c",
+  "file": "/mnt/d/project/SYS_Power/Program/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c",
+  "output": "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build/SYSTEM/sys",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/SYSTEM/sys -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/sys.dir/sys.c.obj -c /mnt/d/project/SYS_Power/Program/SYSTEM/sys/sys.c",
+  "file": "/mnt/d/project/SYS_Power/Program/SYSTEM/sys/sys.c",
+  "output": "SYSTEM/sys/CMakeFiles/sys.dir/sys.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build/SYSTEM/delay",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/SYSTEM/delay -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -I/mnt/d/project/SYS_Power/Program/SYSTEM/sys -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/delay.dir/delay.c.obj -c /mnt/d/project/SYS_Power/Program/SYSTEM/delay/delay.c",
+  "file": "/mnt/d/project/SYS_Power/Program/SYSTEM/delay/delay.c",
+  "output": "SYSTEM/delay/CMakeFiles/delay.dir/delay.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build/peripherals",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/peripherals -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -I/mnt/d/project/SYS_Power/Program/SYSTEM/delay -I/mnt/d/project/SYS_Power/Program/SYSTEM/sys -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/peripherals.dir/oled.c.obj -c /mnt/d/project/SYS_Power/Program/peripherals/oled.c",
+  "file": "/mnt/d/project/SYS_Power/Program/peripherals/oled.c",
+  "output": "peripherals/CMakeFiles/peripherals.dir/oled.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build/peripherals",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/peripherals -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -I/mnt/d/project/SYS_Power/Program/SYSTEM/delay -I/mnt/d/project/SYS_Power/Program/SYSTEM/sys -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/peripherals.dir/font.c.obj -c /mnt/d/project/SYS_Power/Program/peripherals/font.c",
+  "file": "/mnt/d/project/SYS_Power/Program/peripherals/font.c",
+  "output": "peripherals/CMakeFiles/peripherals.dir/font.c.obj"
+},
+{
+  "directory": "/mnt/d/project/SYS_Power/Program/build/peripherals",
+  "command": "/usr/bin/arm-none-eabi-gcc -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER -I/mnt/d/project/SYS_Power/Program/peripherals -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -I/mnt/d/project/SYS_Power/Program/SYSTEM/delay -I/mnt/d/project/SYS_Power/Program/SYSTEM/sys -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11 -o CMakeFiles/peripherals.dir/ad7190.c.obj -c /mnt/d/project/SYS_Power/Program/peripherals/ad7190.c",
+  "file": "/mnt/d/project/SYS_Power/Program/peripherals/ad7190.c",
+  "output": "peripherals/CMakeFiles/peripherals.dir/ad7190.c.obj"
+}
+]

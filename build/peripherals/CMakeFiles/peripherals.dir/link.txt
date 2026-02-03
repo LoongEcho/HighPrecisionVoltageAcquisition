@@ -1,0 +1,2 @@
+/usr/bin/arm-none-eabi-ar qc libperipherals.a CMakeFiles/peripherals.dir/oled.c.obj CMakeFiles/peripherals.dir/font.c.obj CMakeFiles/peripherals.dir/ad7190.c.obj
+/usr/bin/arm-none-eabi-ranlib libperipherals.a
