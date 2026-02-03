@@ -123,45 +123,21 @@ void AD7190_Write_ModeReg(void)
     ad7190_CS_HIGH();
     delay_us(5); // 写操作后，给器件留时间处理配置
 }
-uint32_t AD7190_Read_ModeReg(void)
+
+    // 读取模式寄存器
+uint32_t AD7190_Read_Mode_Reg()
 {
-    uint32_t mode_reg = 0;
-    uint8_t read_byte = 0;
-
-    // 1. 拉低CS，选中AD7190（全程保持低电平，直到读取完成）
     ad7190_CS_LOW();
-    delay_us(1); // 短暂延时，确保CS稳定拉低
 
-    // 2. 发送读模式寄存器的通信命令（0x88 = 0 1 0 0 1 0 0 0）
-    // CR7=0(WEN)、CR6=1(读)、CR5~CR3=001(模式寄存器地址)、CR2~CR0=000(保留位)
-    AD7190_Transmit(0x88);
-    delay_us(1); // 短暂延时，确保命令发送完成
+    uint32_t AD7190_Mode_Reg_Val = 0;
+    AD7190_Transmit(0x48); // 先写通信寄存器，0 1 0 0 1 0 0 0 
+    AD7190_Mode_Reg_Val |= AD7190_ReadData() << 16;
+    AD7190_Mode_Reg_Val |= AD7190_ReadData() << 8;
+    AD7190_Mode_Reg_Val |= AD7190_ReadData();
 
-    // 3. 读取3个字节（24位），高位先行，全程CS保持低电平
-    // 第1个字节：高8位（BIT23~BIT16）
-    read_byte = AD7190_ReadData();
-    mode_reg |= (uint32_t)read_byte << 16; // 左移16位，存入高8位
-    delay_us(1);
+    return AD7190_Mode_Reg_Val;
 
-    // 第2个字节：中8位（BIT15~BIT8）
-    read_byte = AD7190_ReadData();
-    mode_reg |= (uint32_t)read_byte << 8; // 左移8位，存入中8位
-    delay_us(1);
-
-    // 第3个字节：低8位（BIT7~BIT0）
-    read_byte = AD7190_ReadData();
-    mode_reg |= (uint32_t)read_byte; // 直接存入低8位
-    delay_us(1);
-
-    // 4. 拉高CS，结束本次通信
-    ad7190_CS_HIGH();
-
-    // 5. 返回24位模式寄存器值
-    return mode_reg;
 }
-
-
-
 void AD7190_Restart()
 {
     ad7190_CS_LOW();

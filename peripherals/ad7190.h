@@ -12,7 +12,7 @@ void AD7190_Transmit(uint8_t data);
 
 
 void AD7190_Write_ModeReg(void);
-uint32_t AD7190_Read_ModeReg(void);
+uint32_t AD7190_Read_Mode_Reg();
 
 void ad7190_CS_HIGH();
 
