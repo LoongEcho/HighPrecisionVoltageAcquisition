@@ -96,35 +96,13 @@ uint8_t AD7190_ReadData(void)
     return ReadData;
 }
 
-void AD7190_Write_ModeReg(void)
-{
-    ad7190_CS_LOW();
-    delay_us(1); // CS拉低后稳定
 
-    // 1. 发送写模式寄存器命令（0x08）
-    AD7190_Transmit(0x08);
-    delay_us(1); // 字节间延时，确保数据稳定
-
-    // 2. 发送高8位（0x00，保留位全0）
-    AD7190_Transmit(0x00);
-    delay_us(1);
-
-    // 3. 发送中8位（0x00，FS高2位全0）
-    AD7190_Transmit(0x00);
-    delay_us(1);
-
-    // 4. 发送低8位（0x61，单次转换模式）
-    AD7190_Transmit(0x61);
-    delay_us(1);
-
-    // 关键：强制SCLK回到空闲高电平（CPOL=1），再拉高CS
-    AD7190_SCLK_HIGH;
-    delay_us(1);
-    ad7190_CS_HIGH();
-    delay_us(5); // 写操作后，给器件留时间处理配置
-}
-
-    // 读取模式寄存器
+/*
+ *
+ *  读模式寄存器
+ *
+ *
+ */
 uint32_t AD7190_Read_Mode_Reg()
 {
     ad7190_CS_LOW();
@@ -135,9 +113,108 @@ uint32_t AD7190_Read_Mode_Reg()
     AD7190_Mode_Reg_Val |= AD7190_ReadData() << 8;
     AD7190_Mode_Reg_Val |= AD7190_ReadData();
 
+    ad7190_CS_HIGH();
+
     return AD7190_Mode_Reg_Val;
 
 }
+
+
+/* 
+ * write mode register
+ */
+
+void AD7190_Write_ModeReg(uint32_t ModeReg_Val)
+{
+    ad7190_CS_LOW();
+
+    //发送固定的通信寄存器命令
+    AD7190_Transmit(0x08); // 0 | 0 | 001 | 0 | 00 -> 0000 1000 -> 0x08
+    delay_us(1);
+
+    // 发送数据 高8位
+    uint8_t high_byte = (uint8_t)((ModeReg_Val >> 16) & 0xFF);
+    AD7190_Transmit(high_byte);
+    delay_us(1);
+
+    // transmit middle byte
+    uint8_t middle_byte = (uint8_t)((ModeReg_Val >> 8) & 0xFF);
+    AD7190_Transmit(middle_byte);
+    delay_us(1);
+
+    // transmit low byte
+    uint8_t low_byte = (uint8_t)(ModeReg_Val & 0xFF);
+    AD7190_Transmit(low_byte);
+    delay_us(1);
+
+    ad7190_CS_HIGH();
+
+    delay_us(5);
+
+}
+
+
+uint32_t AD7190_Read_Data_Reg()
+{
+    ad7190_CS_LOW();
+
+    uint32_t AD7190_Data_Reg_Val = 0;
+    AD7190_Transmit(0x58); // 先写通信寄存器，0 | 1 | 011 | 0 | 00 -> 0101 1000 -> 0x58 
+    AD7190_Data_Reg_Val |= (uint32_t)AD7190_ReadData() << 16;
+    AD7190_Data_Reg_Val |= (uint32_t)AD7190_ReadData() << 8;
+    AD7190_Data_Reg_Val |= (uint32_t)AD7190_ReadData();
+
+    ad7190_CS_HIGH();
+    return AD7190_Data_Reg_Val;
+
+}
+
+
+uint32_t AD7190_Read_ConfigtureReg()
+{
+    ad7190_CS_LOW();
+
+    uint32_t AD7190_Data_ConfigureVal = 0;
+    AD7190_Transmit(0x50); // 先写通信寄存器，0 1 010 0 00
+    AD7190_Data_ConfigureVal |= (uint32_t)AD7190_ReadData() << 16;
+    AD7190_Data_ConfigureVal |= (uint32_t)AD7190_ReadData() << 8;
+    AD7190_Data_ConfigureVal |= (uint32_t)AD7190_ReadData();
+
+    ad7190_CS_HIGH();
+
+    return AD7190_Data_ConfigureVal;
+
+}
+void AD7190_Write_ConfigureReg(uint32_t ConfigureReg_Val)
+{
+    ad7190_CS_LOW();
+
+    //发送固定的通信寄存器命令
+    AD7190_Transmit(0x10); // 0 0 010 000
+    delay_us(1);
+
+    // 发送数据 高8位
+    uint8_t high_byte = (uint8_t)((ConfigureReg_Val >> 16) & 0xFF);
+    AD7190_Transmit(high_byte);
+    delay_us(1);
+
+    // transmit middle byte
+    uint8_t middle_byte = (uint8_t)((ConfigureReg_Val >> 8) & 0xFF);
+    AD7190_Transmit(middle_byte);
+    delay_us(1);
+
+    // transmit low byte
+    uint8_t low_byte = (uint8_t)(ConfigureReg_Val & 0xFF);
+    AD7190_Transmit(low_byte);
+    delay_us(1);
+
+    ad7190_CS_HIGH();
+
+    delay_us(5);
+
+}
+
+
 void AD7190_Restart()
 {
     ad7190_CS_LOW();

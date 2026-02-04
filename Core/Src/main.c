@@ -1,20 +1,20 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2026 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : main.c
+ * @brief          : Main program body
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2026 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
@@ -65,143 +65,214 @@ void SystemClock_Config(void);
 /* USER CODE END 0 */
 
 /**
-  * @brief  The application entry point.
-  * @retval int
-  */
+ * @brief  The application entry point.
+ * @retval int
+ */
 int main(void)
 {
-  /* USER CODE BEGIN 1 */
-  /* USER CODE END 1 */
+    /* USER CODE BEGIN 1 */
+    /* USER CODE END 1 */
 
-  /* MCU Configuration--------------------------------------------------------*/
-  HAL_Init();
-  SystemClock_Config();
-  MX_GPIO_Init();
-  MX_I2C1_Init();
-  /* USER CODE BEGIN 2 */
+    /* MCU Configuration--------------------------------------------------------*/
+    HAL_Init();
+    SystemClock_Config();
+    MX_GPIO_Init();
+    MX_I2C1_Init();
+    /* USER CODE BEGIN 2 */
 
-  delay_init(72);
-  delay_ms(20);
-  OLED_Init();
+    delay_init(72);
+    delay_ms(20);
+    OLED_Init();
+    AD7190_Restart();
+    delay_ms(20);
+    uint8_t show_buffer[10];
+    uint8_t show_buffer2[10];
+    uint8_t show_buffer3[10];
+    uint8_t Show_Mode_Reg_buffer[10];
 
-  uint8_t show_buffer[10];
-  uint8_t show_buffer2[10];
-  uint8_t show_buffer3[10];
-  uint8_t Show_Mode_Reg_buffer[10];
+    uint32_t DataReg_Val = 0;
+    uint8_t Show_DataReg_buffer[10];
 
-  uint8_t show_no_stuck_buffer[4];
-  uint8_t AD7190_Status_Rig_Data;
-  uint32_t AD7190_Mode_Reg_Val = 0;
-  uint8_t show_no_stuck = 0;
+    uint32_t ConfigureReg_Val = 0;
+    uint8_t Show_ConfigureReg_Val_buffer[10];
 
-  // 关键修改1：复位仅执行1次（上电后初始化，无需每次循环都执行）
-  AD7190_Restart();
-  delay_ms(1); // 复位后等待600μs（手册要求≥500μs），确保寄存器初始化完成
+    uint8_t temp = 0;
+    uint8_t show_no_stuck_buffer[4];
+    uint8_t AD7190_Status_Rig_Data = 0;
+    uint32_t AD7190_Mode_Reg_Val = 0;
+    uint8_t show_no_stuck = 0;
+    AD7190_Write_ConfigureReg(0x001008); // 0 00 0 0000 0001 0000 0 0 0 0 1 000 -> 001008
+    delay_ms(5);
+    //AD7190_Write_ModeReg(0x280060); // 001 | 0 | 10 | 00 | 0 | 0 | 0 | 0 | 0 | 0 | 00 0110 0000 -> 0010 1000 0000 0000 0110 0000 -> 0x280060
+    AD7190_Write_ModeReg(0x2C0060); // 001 0 11 00 0 0 0 0 0 0 00|0110|0000 -> 2C0060
+    do {
+        ad7190_CS_LOW();
+        AD7190_Transmit(0x40); // 读状态寄存器命令
+        AD7190_Status_Rig_Data = AD7190_ReadData();
+        ad7190_CS_HIGH();
+    } while (AD7190_Status_Rig_Data & 0x80); // 等待 RDY = 0
+    DataReg_Val = AD7190_Read_Data_Reg();
+    snprintf((char*)Show_DataReg_buffer, sizeof(Show_DataReg_buffer), "%06X", DataReg_Val);
+    OLED_PrintString(0, 16, "DataReg:", &font16x16, OLED_COLOR_NORMAL);
+    OLED_PrintString(80, 16, (char*)Show_DataReg_buffer, &font16x16, OLED_COLOR_NORMAL);
+    
+    
+    /*
+     *
+     * 更改配置寄存器后先查看一次配置寄存器和模式寄存器的值
+     * 
+     *
+     */
+    ConfigureReg_Val = AD7190_Read_ConfigtureReg();
+    snprintf((char*)Show_ConfigureReg_Val_buffer, sizeof(Show_ConfigureReg_Val_buffer), "%06X", ConfigureReg_Val);
+    OLED_PrintString(0, 48, (char*)Show_ConfigureReg_Val_buffer, &font16x16, OLED_COLOR_NORMAL);
 
-  /* USER CODE END 2 */
-
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-while (1)
-{
-    OLED_NewFrame();
-
-    // 第一次读取状态寄存器（复位后默认值0x80，正常）
-    ad7190_CS_LOW();
-    AD7190_Transmit(0x40);
-    AD7190_Status_Rig_Data = AD7190_ReadData();
-    ad7190_CS_HIGH();
-
-    snprintf((char*)show_buffer, sizeof(show_buffer), "%02X", AD7190_Status_Rig_Data);
-    OLED_PrintString(0, 0, "ADC Status:", &font16x16, OLED_COLOR_NORMAL);
-    OLED_PrintString(112, 0, (char*)show_buffer, &font16x16, OLED_COLOR_NORMAL);
-/*
-    // 写入模式寄存器（单次转换模式）
-    AD7190_Write_ModeReg();
-
-    // 补充关键延时：确保寄存器生效+转换完成
-    delay_us(5);
-    delay_ms(500);
-
-    // 读取模式寄存器
-    uint32_t mode_reg = AD7190_Read_ModeReg();
-    snprintf((char*)show_buffer3, sizeof(show_buffer3), "%06X", mode_reg);
-
-    OLED_PrintString(0, 32, "Mode Reg:", &font16x16, OLED_COLOR_NORMAL);
-    OLED_PrintString(112, 32, (char*)show_buffer3, &font16x16, OLED_COLOR_NORMAL);
-*/
-    // 第二次读取状态寄存器（预期转换完成，RDY位=0，显示00）
-    ad7190_CS_LOW();
-    AD7190_Transmit(0x40);         
-    AD7190_Status_Rig_Data = AD7190_ReadData();
-    ad7190_CS_HIGH();
-
-    snprintf((char*)show_buffer2, sizeof(show_buffer2), "%02X", AD7190_Status_Rig_Data);
-    OLED_PrintString(0, 16, "ADC Status2:", &font16x16, OLED_COLOR_NORMAL);
-    OLED_PrintString(112, 16, (char*)show_buffer2, &font16x16, OLED_COLOR_NORMAL);
-
-
-    // 读取模式寄存器
-    ad7190_CS_LOW();
-    AD7190_Transmit(0x48); // 先写通信寄存器，0 1 0 0 1 0 0 0 
-    AD7190_Mode_Reg_Val |= AD7190_ReadData() << 16;
-    AD7190_Mode_Reg_Val |= AD7190_ReadData() << 8;
-    AD7190_Mode_Reg_Val |= AD7190_ReadData();
-
+    AD7190_Mode_Reg_Val = AD7190_Read_Mode_Reg();
     snprintf((char*)Show_Mode_Reg_buffer, sizeof(Show_Mode_Reg_buffer), "%06X", AD7190_Mode_Reg_Val);
     OLED_PrintString(0, 32, "ModeReg:", &font16x16, OLED_COLOR_NORMAL);
     OLED_PrintString(80, 32, (char*)Show_Mode_Reg_buffer, &font16x16, OLED_COLOR_NORMAL);
-
-    // 屏幕防卡死刷新
-    show_no_stuck += 1;
-    if (show_no_stuck > 20) {
-        show_no_stuck = 0;
-    }
-    snprintf((char*)show_no_stuck_buffer, sizeof(show_no_stuck_buffer), "%02X", show_no_stuck);
-    OLED_PrintString(96, 48, (char*)show_no_stuck_buffer, &font16x16, OLED_COLOR_NORMAL);
-
-    delay_ms(500);
+ 
     OLED_ShowFrame();
-}
-  /* USER CODE END 3 */
+
+    
+
+    delay_ms(3000);
+
+    /* USER CODE END 2 */
+
+    /* Infinite loop */
+    /* USER CODE BEGIN WHILE */
+    while (1)
+    {
+        OLED_NewFrame();
+
+        // 第一次读取状态寄存器（复位后默认值0x80，正常）
+
+        ad7190_CS_LOW();
+        AD7190_Transmit(0x40);
+        AD7190_Status_Rig_Data = AD7190_ReadData();
+        ad7190_CS_HIGH();
+
+        snprintf((char*)show_buffer, sizeof(show_buffer), "%02X", AD7190_Status_Rig_Data);
+        OLED_PrintString(0, 0, "ADC Status:", &font16x16, OLED_COLOR_NORMAL);
+        OLED_PrintString(112, 0, (char*)show_buffer, &font16x16, OLED_COLOR_NORMAL);
+
+
+        /*
+         * write configure and mode register.
+         */
+
+        /*
+         * read and show data register.
+         */
+        AD7190_Write_ModeReg(0x2C0060); // 再次触发单次转换
+        do {
+            ad7190_CS_LOW();
+            AD7190_Transmit(0x40);
+            AD7190_Status_Rig_Data = AD7190_ReadData();
+            ad7190_CS_HIGH();
+        } while (AD7190_Status_Rig_Data & 0x80); // 等待 RDY
+        DataReg_Val = AD7190_Read_Data_Reg();
+        snprintf((char*)Show_DataReg_buffer, sizeof(Show_DataReg_buffer), "%06X", DataReg_Val);
+        OLED_PrintString(0, 16, "DataReg:", &font16x16, OLED_COLOR_NORMAL);
+        OLED_PrintString(80, 16, (char*)Show_DataReg_buffer, &font16x16, OLED_COLOR_NORMAL);
+
+
+        /*
+        // 写入模式寄存器（单次转换模式）
+        AD7190_Write_ModeReg();
+
+        // 补充关键延时：确保寄存器生效+转换完成
+        delay_us(5);
+        delay_ms(500);
+
+        // 读取模式寄存器
+        uint32_t mode_reg = AD7190_Read_ModeReg();
+        snprintf((char*)show_buffer3, sizeof(show_buffer3), "%06X", mode_reg);
+
+        OLED_PrintString(0, 32, "Mode Reg:", &font16x16, OLED_COLOR_NORMAL);
+        OLED_PrintString(112, 32, (char*)show_buffer3, &font16x16, OLED_COLOR_NORMAL);
+        */
+        // 第二次读取状态寄存器（预期转换完成，RDY位=0，显示00）
+        /*    ad7190_CS_LOW();
+              AD7190_Transmit(0x40);         
+              AD7190_Status_Rig_Data = AD7190_ReadData();
+              ad7190_CS_HIGH();
+
+              snprintf((char*)show_buffer2, sizeof(show_buffer2), "%02X", AD7190_Status_Rig_Data);
+              OLED_PrintString(0, 16, "ADC Status2:", &font16x16, OLED_COLOR_NORMAL);
+              OLED_PrintString(112, 16, (char*)show_buffer2, &font16x16, OLED_COLOR_NORMAL);
+              */
+
+        /*
+         * read mode reg.
+         */
+        AD7190_Mode_Reg_Val = AD7190_Read_Mode_Reg();
+
+        snprintf((char*)Show_Mode_Reg_buffer, sizeof(Show_Mode_Reg_buffer), "%06X", AD7190_Mode_Reg_Val);
+        OLED_PrintString(0, 32, "ModeReg:", &font16x16, OLED_COLOR_NORMAL);
+        OLED_PrintString(80, 32, (char*)Show_Mode_Reg_buffer, &font16x16, OLED_COLOR_NORMAL);
+
+        ConfigureReg_Val = AD7190_Read_ConfigtureReg();
+        snprintf((char*)Show_ConfigureReg_Val_buffer, sizeof(Show_ConfigureReg_Val_buffer), "%06X", ConfigureReg_Val);
+        OLED_PrintString(0, 48, "Conf_Reg", &font16x16, OLED_COLOR_NORMAL);
+        OLED_PrintString(64, 48, (char*)Show_ConfigureReg_Val_buffer, &font16x16, OLED_COLOR_NORMAL);
+
+
+
+
+        /* 
+         * 屏幕防卡死刷新
+         */
+        show_no_stuck += 1;
+        if (show_no_stuck > 20) {
+            show_no_stuck = 0;
+        }
+        snprintf((char*)show_no_stuck_buffer, sizeof(show_no_stuck_buffer), "%02X", show_no_stuck);
+        OLED_PrintString(112, 48, (char*)show_no_stuck_buffer, &font16x16, OLED_COLOR_NORMAL);
+
+        delay_ms(500);
+        OLED_ShowFrame();
+    }
+    /* USER CODE END 3 */
 }
 /**
-  * @brief System Clock Configuration
-  * @retval None
-  */
+ * @brief System Clock Configuration
+ * @retval None
+ */
 void SystemClock_Config(void)
 {
-  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+    RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+    RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
-  /** Initializes the RCC Oscillators according to the specified parameters
-  * in the RCC_OscInitTypeDef structure.
-  */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
-  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
-  RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
-  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-  {
-    Error_Handler();
-  }
+    /** Initializes the RCC Oscillators according to the specified parameters
+     * in the RCC_OscInitTypeDef structure.
+     */
+    RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+    RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+    RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
+    RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+    RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+    RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+    RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
+    if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+    {
+        Error_Handler();
+    }
 
-  /** Initializes the CPU, AHB and APB buses clocks
-  */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+    /** Initializes the CPU, AHB and APB buses clocks
+    */
+    RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+        |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+    RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+    RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+    RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+    RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
-  {
-    Error_Handler();
-  }
+    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+    {
+        Error_Handler();
+    }
 }
 
 /* USER CODE BEGIN 4 */
@@ -209,32 +280,32 @@ void SystemClock_Config(void)
 /* USER CODE END 4 */
 
 /**
-  * @brief  This function is executed in case of error occurrence.
-  * @retval None
-  */
+ * @brief  This function is executed in case of error occurrence.
+ * @retval None
+ */
 void Error_Handler(void)
 {
-  /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
-  while (1)
-  {
-  }
-  /* USER CODE END Error_Handler_Debug */
+    /* USER CODE BEGIN Error_Handler_Debug */
+    /* User can add his own implementation to report the HAL error return state */
+    __disable_irq();
+    while (1)
+    {
+    }
+    /* USER CODE END Error_Handler_Debug */
 }
 #ifdef USE_FULL_ASSERT
 /**
-  * @brief  Reports the name of the source file and the source line number
-  *         where the assert_param error has occurred.
-  * @param  file: pointer to the source file name
-  * @param  line: assert_param error line source number
-  * @retval None
-  */
+ * @brief  Reports the name of the source file and the source line number
+ *         where the assert_param error has occurred.
+ * @param  file: pointer to the source file name
+ * @param  line: assert_param error line source number
+ * @retval None
+ */
 void assert_failed(uint8_t *file, uint32_t line)
 {
-  /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
-     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
-  /* USER CODE END 6 */
+    /* USER CODE BEGIN 6 */
+    /* User can add his own implementation to report the file name and line number,
+ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+    /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
