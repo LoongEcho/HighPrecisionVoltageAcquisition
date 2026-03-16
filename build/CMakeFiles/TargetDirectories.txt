@@ -10,6 +10,9 @@
 /mnt/d/project/SYS_Power/Program/build/SYSTEM/delay/CMakeFiles/delay.dir
 /mnt/d/project/SYS_Power/Program/build/SYSTEM/delay/CMakeFiles/edit_cache.dir
 /mnt/d/project/SYS_Power/Program/build/SYSTEM/delay/CMakeFiles/rebuild_cache.dir
-/mnt/d/project/SYS_Power/Program/build/peripherals/CMakeFiles/peripherals.dir
-/mnt/d/project/SYS_Power/Program/build/peripherals/CMakeFiles/edit_cache.dir
-/mnt/d/project/SYS_Power/Program/build/peripherals/CMakeFiles/rebuild_cache.dir
+/mnt/d/project/SYS_Power/Program/build/peripherals/oled/CMakeFiles/oled.dir
+/mnt/d/project/SYS_Power/Program/build/peripherals/oled/CMakeFiles/edit_cache.dir
+/mnt/d/project/SYS_Power/Program/build/peripherals/oled/CMakeFiles/rebuild_cache.dir
+/mnt/d/project/SYS_Power/Program/build/peripherals/ad7190/CMakeFiles/ad7190.dir
+/mnt/d/project/SYS_Power/Program/build/peripherals/ad7190/CMakeFiles/edit_cache.dir
+/mnt/d/project/SYS_Power/Program/build/peripherals/ad7190/CMakeFiles/rebuild_cache.dir

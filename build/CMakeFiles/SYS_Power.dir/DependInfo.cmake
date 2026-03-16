@@ -28,7 +28,8 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
   "/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include"
   "/mnt/d/project/SYS_Power/Program/SYSTEM/sys"
   "/mnt/d/project/SYS_Power/Program/SYSTEM/delay"
-  "/mnt/d/project/SYS_Power/Program/peripherals"
+  "/mnt/d/project/SYS_Power/Program/peripherals/ad7190"
+  "/mnt/d/project/SYS_Power/Program/peripherals/oled"
   )
 
 # The set of dependency files which are needed:

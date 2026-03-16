@@ -67,14 +67,16 @@ all: CMakeFiles/SYS_Power.dir/all
 all: cmake/stm32cubemx/all
 all: SYSTEM/sys/all
 all: SYSTEM/delay/all
-all: peripherals/all
+all: peripherals/oled/all
+all: peripherals/ad7190/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: cmake/stm32cubemx/preinstall
 preinstall: SYSTEM/sys/preinstall
 preinstall: SYSTEM/delay/preinstall
-preinstall: peripherals/preinstall
+preinstall: peripherals/oled/preinstall
+preinstall: peripherals/ad7190/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
@@ -82,7 +84,8 @@ clean: CMakeFiles/SYS_Power.dir/clean
 clean: cmake/stm32cubemx/clean
 clean: SYSTEM/sys/clean
 clean: SYSTEM/delay/clean
-clean: peripherals/clean
+clean: peripherals/oled/clean
+clean: peripherals/ad7190/clean
 .PHONY : clean
 
 #=============================================================================
@@ -131,19 +134,34 @@ cmake/stm32cubemx/clean: cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/clean
 .PHONY : cmake/stm32cubemx/clean
 
 #=============================================================================
-# Directory level rules for directory peripherals
+# Directory level rules for directory peripherals/ad7190
 
 # Recursive "all" directory target.
-peripherals/all: peripherals/CMakeFiles/peripherals.dir/all
-.PHONY : peripherals/all
+peripherals/ad7190/all: peripherals/ad7190/CMakeFiles/ad7190.dir/all
+.PHONY : peripherals/ad7190/all
 
 # Recursive "preinstall" directory target.
-peripherals/preinstall:
-.PHONY : peripherals/preinstall
+peripherals/ad7190/preinstall:
+.PHONY : peripherals/ad7190/preinstall
 
 # Recursive "clean" directory target.
-peripherals/clean: peripherals/CMakeFiles/peripherals.dir/clean
-.PHONY : peripherals/clean
+peripherals/ad7190/clean: peripherals/ad7190/CMakeFiles/ad7190.dir/clean
+.PHONY : peripherals/ad7190/clean
+
+#=============================================================================
+# Directory level rules for directory peripherals/oled
+
+# Recursive "all" directory target.
+peripherals/oled/all: peripherals/oled/CMakeFiles/oled.dir/all
+.PHONY : peripherals/oled/all
+
+# Recursive "preinstall" directory target.
+peripherals/oled/preinstall:
+.PHONY : peripherals/oled/preinstall
+
+# Recursive "clean" directory target.
+peripherals/oled/clean: peripherals/oled/CMakeFiles/oled.dir/clean
+.PHONY : peripherals/oled/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/SYS_Power.dir
@@ -152,7 +170,8 @@ peripherals/clean: peripherals/CMakeFiles/peripherals.dir/clean
 CMakeFiles/SYS_Power.dir/all: cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/all
 CMakeFiles/SYS_Power.dir/all: SYSTEM/sys/CMakeFiles/sys.dir/all
 CMakeFiles/SYS_Power.dir/all: SYSTEM/delay/CMakeFiles/delay.dir/all
-CMakeFiles/SYS_Power.dir/all: peripherals/CMakeFiles/peripherals.dir/all
+CMakeFiles/SYS_Power.dir/all: peripherals/oled/CMakeFiles/oled.dir/all
+CMakeFiles/SYS_Power.dir/all: peripherals/ad7190/CMakeFiles/ad7190.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SYS_Power.dir/build.make CMakeFiles/SYS_Power.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SYS_Power.dir/build.make CMakeFiles/SYS_Power.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/d/project/SYS_Power/Program/build/CMakeFiles --progress-num=14,15,16,17,18,19,20,21,22 "Built target SYS_Power"
@@ -160,7 +179,7 @@ CMakeFiles/SYS_Power.dir/all: peripherals/CMakeFiles/peripherals.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/SYS_Power.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/project/SYS_Power/Program/build/CMakeFiles 30
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/project/SYS_Power/Program/build/CMakeFiles 31
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/SYS_Power.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/project/SYS_Power/Program/build/CMakeFiles 0
 .PHONY : CMakeFiles/SYS_Power.dir/rule
@@ -207,7 +226,7 @@ cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/clean:
 SYSTEM/sys/CMakeFiles/sys.dir/all:
 	$(MAKE) $(MAKESILENT) -f SYSTEM/sys/CMakeFiles/sys.dir/build.make SYSTEM/sys/CMakeFiles/sys.dir/depend
 	$(MAKE) $(MAKESILENT) -f SYSTEM/sys/CMakeFiles/sys.dir/build.make SYSTEM/sys/CMakeFiles/sys.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/d/project/SYS_Power/Program/build/CMakeFiles --progress-num=29,30 "Built target sys"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/d/project/SYS_Power/Program/build/CMakeFiles --progress-num=30,31 "Built target sys"
 .PHONY : SYSTEM/sys/CMakeFiles/sys.dir/all
 
 # Build rule for subdir invocation for target.
@@ -233,7 +252,7 @@ SYSTEM/sys/CMakeFiles/sys.dir/clean:
 SYSTEM/delay/CMakeFiles/delay.dir/all: SYSTEM/sys/CMakeFiles/sys.dir/all
 	$(MAKE) $(MAKESILENT) -f SYSTEM/delay/CMakeFiles/delay.dir/build.make SYSTEM/delay/CMakeFiles/delay.dir/depend
 	$(MAKE) $(MAKESILENT) -f SYSTEM/delay/CMakeFiles/delay.dir/build.make SYSTEM/delay/CMakeFiles/delay.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/d/project/SYS_Power/Program/build/CMakeFiles --progress-num=23,24 "Built target delay"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/d/project/SYS_Power/Program/build/CMakeFiles --progress-num=25,26 "Built target delay"
 .PHONY : SYSTEM/delay/CMakeFiles/delay.dir/all
 
 # Build rule for subdir invocation for target.
@@ -253,31 +272,58 @@ SYSTEM/delay/CMakeFiles/delay.dir/clean:
 .PHONY : SYSTEM/delay/CMakeFiles/delay.dir/clean
 
 #=============================================================================
-# Target rules for target peripherals/CMakeFiles/peripherals.dir
+# Target rules for target peripherals/oled/CMakeFiles/oled.dir
 
 # All Build rule for target.
-peripherals/CMakeFiles/peripherals.dir/all: SYSTEM/sys/CMakeFiles/sys.dir/all
-peripherals/CMakeFiles/peripherals.dir/all: SYSTEM/delay/CMakeFiles/delay.dir/all
-	$(MAKE) $(MAKESILENT) -f peripherals/CMakeFiles/peripherals.dir/build.make peripherals/CMakeFiles/peripherals.dir/depend
-	$(MAKE) $(MAKESILENT) -f peripherals/CMakeFiles/peripherals.dir/build.make peripherals/CMakeFiles/peripherals.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/d/project/SYS_Power/Program/build/CMakeFiles --progress-num=25,26,27,28 "Built target peripherals"
-.PHONY : peripherals/CMakeFiles/peripherals.dir/all
+peripherals/oled/CMakeFiles/oled.dir/all: SYSTEM/sys/CMakeFiles/sys.dir/all
+peripherals/oled/CMakeFiles/oled.dir/all: SYSTEM/delay/CMakeFiles/delay.dir/all
+	$(MAKE) $(MAKESILENT) -f peripherals/oled/CMakeFiles/oled.dir/build.make peripherals/oled/CMakeFiles/oled.dir/depend
+	$(MAKE) $(MAKESILENT) -f peripherals/oled/CMakeFiles/oled.dir/build.make peripherals/oled/CMakeFiles/oled.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/d/project/SYS_Power/Program/build/CMakeFiles --progress-num=27,28,29 "Built target oled"
+.PHONY : peripherals/oled/CMakeFiles/oled.dir/all
 
 # Build rule for subdir invocation for target.
-peripherals/CMakeFiles/peripherals.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/project/SYS_Power/Program/build/CMakeFiles 8
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 peripherals/CMakeFiles/peripherals.dir/all
+peripherals/oled/CMakeFiles/oled.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/project/SYS_Power/Program/build/CMakeFiles 7
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 peripherals/oled/CMakeFiles/oled.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/project/SYS_Power/Program/build/CMakeFiles 0
-.PHONY : peripherals/CMakeFiles/peripherals.dir/rule
+.PHONY : peripherals/oled/CMakeFiles/oled.dir/rule
 
 # Convenience name for target.
-peripherals: peripherals/CMakeFiles/peripherals.dir/rule
-.PHONY : peripherals
+oled: peripherals/oled/CMakeFiles/oled.dir/rule
+.PHONY : oled
 
 # clean rule for target.
-peripherals/CMakeFiles/peripherals.dir/clean:
-	$(MAKE) $(MAKESILENT) -f peripherals/CMakeFiles/peripherals.dir/build.make peripherals/CMakeFiles/peripherals.dir/clean
-.PHONY : peripherals/CMakeFiles/peripherals.dir/clean
+peripherals/oled/CMakeFiles/oled.dir/clean:
+	$(MAKE) $(MAKESILENT) -f peripherals/oled/CMakeFiles/oled.dir/build.make peripherals/oled/CMakeFiles/oled.dir/clean
+.PHONY : peripherals/oled/CMakeFiles/oled.dir/clean
+
+#=============================================================================
+# Target rules for target peripherals/ad7190/CMakeFiles/ad7190.dir
+
+# All Build rule for target.
+peripherals/ad7190/CMakeFiles/ad7190.dir/all: SYSTEM/sys/CMakeFiles/sys.dir/all
+peripherals/ad7190/CMakeFiles/ad7190.dir/all: SYSTEM/delay/CMakeFiles/delay.dir/all
+	$(MAKE) $(MAKESILENT) -f peripherals/ad7190/CMakeFiles/ad7190.dir/build.make peripherals/ad7190/CMakeFiles/ad7190.dir/depend
+	$(MAKE) $(MAKESILENT) -f peripherals/ad7190/CMakeFiles/ad7190.dir/build.make peripherals/ad7190/CMakeFiles/ad7190.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/d/project/SYS_Power/Program/build/CMakeFiles --progress-num=23,24 "Built target ad7190"
+.PHONY : peripherals/ad7190/CMakeFiles/ad7190.dir/all
+
+# Build rule for subdir invocation for target.
+peripherals/ad7190/CMakeFiles/ad7190.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/project/SYS_Power/Program/build/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 peripherals/ad7190/CMakeFiles/ad7190.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/d/project/SYS_Power/Program/build/CMakeFiles 0
+.PHONY : peripherals/ad7190/CMakeFiles/ad7190.dir/rule
+
+# Convenience name for target.
+ad7190: peripherals/ad7190/CMakeFiles/ad7190.dir/rule
+.PHONY : ad7190
+
+# clean rule for target.
+peripherals/ad7190/CMakeFiles/ad7190.dir/clean:
+	$(MAKE) $(MAKESILENT) -f peripherals/ad7190/CMakeFiles/ad7190.dir/build.make peripherals/ad7190/CMakeFiles/ad7190.dir/clean
+.PHONY : peripherals/ad7190/CMakeFiles/ad7190.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

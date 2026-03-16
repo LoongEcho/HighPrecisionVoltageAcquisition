@@ -63,7 +63,8 @@ add_subdirectory(cmake/stm32cubemx)
 
 add_subdirectory(SYSTEM/sys)
 add_subdirectory(SYSTEM/delay)
-add_subdirectory(peripherals)
+add_subdirectory(peripherals/oled)
+add_subdirectory(peripherals/ad7190)
 # Link directories setup
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined library search paths
@@ -92,7 +93,8 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
     stm32cubemx   
     sys
     delay
-    peripherals
+    ad7190
+    oled
 
     # Add user defined libraries
 )

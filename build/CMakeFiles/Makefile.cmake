@@ -16,7 +16,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.28.3/CMakeSystem.cmake"
   "/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/CMakeLists.txt"
   "/mnt/d/project/SYS_Power/Program/cmake/toolchain-arm-none-eabi.cmake"
-  "/mnt/d/project/SYS_Power/Program/peripherals/CMakeLists.txt"
+  "/mnt/d/project/SYS_Power/Program/peripherals/ad7190/CMakeLists.txt"
+  "/mnt/d/project/SYS_Power/Program/peripherals/oled/CMakeLists.txt"
   "/usr/share/cmake-3.28/Modules/CMakeASMInformation.cmake"
   "/usr/share/cmake-3.28/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake"
@@ -46,7 +47,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "cmake/stm32cubemx/CMakeFiles/CMakeDirectoryInformation.cmake"
   "SYSTEM/sys/CMakeFiles/CMakeDirectoryInformation.cmake"
   "SYSTEM/delay/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "peripherals/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "peripherals/oled/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "peripherals/ad7190/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -55,5 +57,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/DependInfo.cmake"
   "SYSTEM/sys/CMakeFiles/sys.dir/DependInfo.cmake"
   "SYSTEM/delay/CMakeFiles/delay.dir/DependInfo.cmake"
-  "peripherals/CMakeFiles/peripherals.dir/DependInfo.cmake"
+  "peripherals/oled/CMakeFiles/oled.dir/DependInfo.cmake"
+  "peripherals/ad7190/CMakeFiles/ad7190.dir/DependInfo.cmake"
   )

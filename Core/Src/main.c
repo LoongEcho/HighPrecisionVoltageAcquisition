@@ -85,13 +85,20 @@ int main(void)
     OLED_Init();
     AD7190_Restart();
     delay_ms(20);
+    
+    uint32_t DataReg_Val = 0;
+    float Vin_adc = 0;
+    float VREF = 3.32f;
+    float Vin_real = 0;
+
+
     uint8_t show_buffer[10];
     uint8_t show_buffer2[10];
     uint8_t show_buffer3[10];
     uint8_t Show_Mode_Reg_buffer[10];
 
-    uint32_t DataReg_Val = 0;
-    uint8_t Show_DataReg_buffer[10];
+    uint8_t Show_DataReg_buffer[20];
+    uint8_t show_real_vin[20];
 
     uint32_t ConfigureReg_Val = 0;
     uint8_t Show_ConfigureReg_Val_buffer[10];
@@ -129,14 +136,14 @@ int main(void)
 
     AD7190_Mode_Reg_Val = AD7190_Read_Mode_Reg();
     snprintf((char*)Show_Mode_Reg_buffer, sizeof(Show_Mode_Reg_buffer), "%06X", AD7190_Mode_Reg_Val);
-    OLED_PrintString(0, 32, "ModeReg:", &font16x16, OLED_COLOR_NORMAL);
-    OLED_PrintString(80, 32, (char*)Show_Mode_Reg_buffer, &font16x16, OLED_COLOR_NORMAL);
+//    OLED_PrintString(0, 32, "ModeReg:", &font16x16, OLED_COLOR_NORMAL);
+//    OLED_PrintString(80, 32, (char*)Show_Mode_Reg_buffer, &font16x16, OLED_COLOR_NORMAL);
  
     OLED_ShowFrame();
 
     
 
-    delay_ms(3000);
+    delay_ms(1000);
 
     /* USER CODE END 2 */
 
@@ -152,10 +159,12 @@ int main(void)
         AD7190_Transmit(0x40);
         AD7190_Status_Rig_Data = AD7190_ReadData();
         ad7190_CS_HIGH();
-
-        snprintf((char*)show_buffer, sizeof(show_buffer), "%02X", AD7190_Status_Rig_Data);
-        OLED_PrintString(0, 0, "ADC Status:", &font16x16, OLED_COLOR_NORMAL);
-        OLED_PrintString(112, 0, (char*)show_buffer, &font16x16, OLED_COLOR_NORMAL);
+        /*
+         * adc status reg.
+         */
+        // snprintf((char*)show_buffer, sizeof(show_buffer), "%02X", AD7190_Status_Rig_Data);
+        // OLED_PrintString(0, 0, "ADC Status:", &font16x16, OLED_COLOR_NORMAL);
+        // OLED_PrintString(112, 0, (char*)show_buffer, &font16x16, OLED_COLOR_NORMAL);
 
 
         /*
@@ -173,9 +182,13 @@ int main(void)
             ad7190_CS_HIGH();
         } while (AD7190_Status_Rig_Data & 0x80); // 等待 RDY
         DataReg_Val = AD7190_Read_Data_Reg();
-        snprintf((char*)Show_DataReg_buffer, sizeof(Show_DataReg_buffer), "%06X", DataReg_Val);
-        OLED_PrintString(0, 16, "DataReg:", &font16x16, OLED_COLOR_NORMAL);
-        OLED_PrintString(80, 16, (char*)Show_DataReg_buffer, &font16x16, OLED_COLOR_NORMAL);
+        Vin_adc = ((float)DataReg_Val / 16777215.0f) * VREF;
+        Vin_real = Vin_adc * 1.56f;
+        snprintf((char*)show_real_vin, sizeof(show_real_vin), "Vin_real:%.4f V", Vin_real);
+        OLED_PrintString(0, 16, (char*)show_real_vin, &font16x16, OLED_COLOR_NORMAL);
+
+        snprintf((char*)Show_DataReg_buffer, sizeof(Show_DataReg_buffer), "Vin_adc:%.4f V", Vin_adc);
+        OLED_PrintString(0, 32, (char*)Show_DataReg_buffer, &font16x16, OLED_COLOR_NORMAL);
 
 
         /*
@@ -207,31 +220,22 @@ int main(void)
         /*
          * read mode reg.
          */
-        AD7190_Mode_Reg_Val = AD7190_Read_Mode_Reg();
+        // AD7190_Mode_Reg_Val = AD7190_Read_Mode_Reg();
+        //
+        // snprintf((char*)Show_Mode_Reg_buffer, sizeof(Show_Mode_Reg_buffer), "%06X", AD7190_Mode_Reg_Val);
+        // OLED_PrintString(0, 32, "ModeReg:", &font16x16, OLED_COLOR_NORMAL);
+        // OLED_PrintString(80, 32, (char*)Show_Mode_Reg_buffer, &font16x16, OLED_COLOR_NORMAL);
 
-        snprintf((char*)Show_Mode_Reg_buffer, sizeof(Show_Mode_Reg_buffer), "%06X", AD7190_Mode_Reg_Val);
-        OLED_PrintString(0, 32, "ModeReg:", &font16x16, OLED_COLOR_NORMAL);
-        OLED_PrintString(80, 32, (char*)Show_Mode_Reg_buffer, &font16x16, OLED_COLOR_NORMAL);
-
-        ConfigureReg_Val = AD7190_Read_ConfigtureReg();
-        snprintf((char*)Show_ConfigureReg_Val_buffer, sizeof(Show_ConfigureReg_Val_buffer), "%06X", ConfigureReg_Val);
-        OLED_PrintString(0, 48, "Conf_Reg", &font16x16, OLED_COLOR_NORMAL);
-        OLED_PrintString(64, 48, (char*)Show_ConfigureReg_Val_buffer, &font16x16, OLED_COLOR_NORMAL);
-
-
-
-
-        /* 
-         * 屏幕防卡死刷新
+        /*
+         * configure Reg.
          */
-        show_no_stuck += 1;
-        if (show_no_stuck > 20) {
-            show_no_stuck = 0;
-        }
-        snprintf((char*)show_no_stuck_buffer, sizeof(show_no_stuck_buffer), "%02X", show_no_stuck);
-        OLED_PrintString(112, 48, (char*)show_no_stuck_buffer, &font16x16, OLED_COLOR_NORMAL);
+        // ConfigureReg_Val = AD7190_Read_ConfigtureReg();
+        // snprintf((char*)Show_ConfigureReg_Val_buffer, sizeof(Show_ConfigureReg_Val_buffer), "%06X", ConfigureReg_Val);
+        // OLED_PrintString(0, 48, "Conf_Reg", &font16x16, OLED_COLOR_NORMAL);
+        // OLED_PrintString(64, 48, (char*)Show_ConfigureReg_Val_buffer, &font16x16, OLED_COLOR_NORMAL);
 
-        delay_ms(500);
+        delay_ms(200);
+
         OLED_ShowFrame();
     }
     /* USER CODE END 3 */

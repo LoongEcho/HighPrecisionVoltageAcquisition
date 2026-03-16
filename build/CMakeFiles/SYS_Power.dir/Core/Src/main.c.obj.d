@@ -26,7 +26,7 @@ CMakeFiles/SYS_Power.dir/Core/Src/main.c.obj: \
  /mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h \
  /mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h \
  /mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
- /mnt/d/project/SYS_Power/Program/peripherals/font.h \
+ /mnt/d/project/SYS_Power/Program/peripherals/oled/font.h \
  /usr/include/newlib/string.h /usr/include/newlib/_ansi.h \
  /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h \
  /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h \
@@ -41,9 +41,9 @@ CMakeFiles/SYS_Power.dir/Core/Src/main.c.obj: \
  /mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc/gpio.h \
  /mnt/d/project/SYS_Power/Program/SYSTEM/delay/delay.h \
  /mnt/d/project/SYS_Power/Program/SYSTEM/sys/sys.h \
- /mnt/d/project/SYS_Power/Program/peripherals/oled.h \
- /mnt/d/project/SYS_Power/Program/peripherals/font.h \
- /mnt/d/project/SYS_Power/Program/peripherals/ad7190.h \
+ /mnt/d/project/SYS_Power/Program/peripherals/oled/oled.h \
+ /mnt/d/project/SYS_Power/Program/peripherals/oled/font.h \
+ /mnt/d/project/SYS_Power/Program/peripherals/ad7190/ad7190.h \
  /usr/include/newlib/stdio.h \
  /usr/lib/gcc/arm-none-eabi/13.2.1/include/stdarg.h \
  /usr/include/newlib/sys/stdio.h

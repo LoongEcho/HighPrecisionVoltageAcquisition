@@ -54,7 +54,12 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/mnt/d/project/SYS_Power/Program/build/peripherals/cmake_install.cmake")
+  include("/mnt/d/project/SYS_Power/Program/build/peripherals/oled/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/mnt/d/project/SYS_Power/Program/build/peripherals/ad7190/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

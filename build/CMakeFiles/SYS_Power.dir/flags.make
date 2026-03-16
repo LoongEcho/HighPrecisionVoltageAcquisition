@@ -5,13 +5,13 @@
 # compile C with /usr/bin/arm-none-eabi-gcc
 ASM_DEFINES = -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER
 
-ASM_INCLUDES = -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -I/mnt/d/project/SYS_Power/Program/SYSTEM/sys -I/mnt/d/project/SYS_Power/Program/SYSTEM/delay -I/mnt/d/project/SYS_Power/Program/peripherals
+ASM_INCLUDES = -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -I/mnt/d/project/SYS_Power/Program/SYSTEM/sys -I/mnt/d/project/SYS_Power/Program/SYSTEM/delay -I/mnt/d/project/SYS_Power/Program/peripherals/ad7190 -I/mnt/d/project/SYS_Power/Program/peripherals/oled
 
 ASM_FLAGS = -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -g
 
 C_DEFINES = -DDEBUG -DSTM32F103xE -DUSE_HAL_DRIVER
 
-C_INCLUDES = -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -I/mnt/d/project/SYS_Power/Program/SYSTEM/sys -I/mnt/d/project/SYS_Power/Program/SYSTEM/delay -I/mnt/d/project/SYS_Power/Program/peripherals
+C_INCLUDES = -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Core/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I/mnt/d/project/SYS_Power/Program/cmake/stm32cubemx/../../Drivers/CMSIS/Include -I/mnt/d/project/SYS_Power/Program/SYSTEM/sys -I/mnt/d/project/SYS_Power/Program/SYSTEM/delay -I/mnt/d/project/SYS_Power/Program/peripherals/ad7190 -I/mnt/d/project/SYS_Power/Program/peripherals/oled
 
 C_FLAGS = -mcpu=cortex-m3  -mthumb -mfloat-abi=soft -Os -g -fdata-sections -ffunction-sections -g -std=gnu11
 

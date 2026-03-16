@@ -231,7 +231,8 @@ SYS_Power: cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1x
 SYS_Power: CMakeFiles/SYS_Power.dir/build.make
 SYS_Power: SYSTEM/sys/libsys.a
 SYS_Power: SYSTEM/delay/libdelay.a
-SYS_Power: peripherals/libperipherals.a
+SYS_Power: peripherals/ad7190/libad7190.a
+SYS_Power: peripherals/oled/liboled.a
 SYS_Power: SYSTEM/delay/libdelay.a
 SYS_Power: SYSTEM/sys/libsys.a
 SYS_Power: CMakeFiles/SYS_Power.dir/link.txt

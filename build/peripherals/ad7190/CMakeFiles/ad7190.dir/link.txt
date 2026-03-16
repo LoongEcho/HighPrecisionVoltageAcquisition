@@ -1,0 +1,2 @@
+/usr/bin/arm-none-eabi-ar qc libad7190.a CMakeFiles/ad7190.dir/ad7190.c.obj
+/usr/bin/arm-none-eabi-ranlib libad7190.a

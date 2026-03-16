@@ -169,17 +169,30 @@ delay/fast:
 .PHONY : delay/fast
 
 #=============================================================================
-# Target rules for targets named peripherals
+# Target rules for targets named oled
 
 # Build rule for target.
-peripherals: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 peripherals
-.PHONY : peripherals
+oled: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 oled
+.PHONY : oled
 
 # fast build rule for target.
-peripherals/fast:
-	$(MAKE) $(MAKESILENT) -f peripherals/CMakeFiles/peripherals.dir/build.make peripherals/CMakeFiles/peripherals.dir/build
-.PHONY : peripherals/fast
+oled/fast:
+	$(MAKE) $(MAKESILENT) -f peripherals/oled/CMakeFiles/oled.dir/build.make peripherals/oled/CMakeFiles/oled.dir/build
+.PHONY : oled/fast
+
+#=============================================================================
+# Target rules for targets named ad7190
+
+# Build rule for target.
+ad7190: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ad7190
+.PHONY : ad7190
+
+# fast build rule for target.
+ad7190/fast:
+	$(MAKE) $(MAKESILENT) -f peripherals/ad7190/CMakeFiles/ad7190.dir/build.make peripherals/ad7190/CMakeFiles/ad7190.dir/build
+.PHONY : ad7190/fast
 
 Core/Src/gpio.obj: Core/Src/gpio.c.obj
 .PHONY : Core/Src/gpio.obj
@@ -367,8 +380,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... STM32_Drivers"
 	@echo "... SYS_Power"
+	@echo "... ad7190"
 	@echo "... delay"
-	@echo "... peripherals"
+	@echo "... oled"
 	@echo "... sys"
 	@echo "... Core/Src/gpio.obj"
 	@echo "... Core/Src/gpio.i"
